@@ -1,0 +1,11 @@
+sudo: required
+services:
+  - docker
+before_install:
+  - docker build -t niggusch/java-mvn-mongo .
+  - docker run -d -p 127.0.0.1:80:4567 niggusch/java-mvn-mongo /bin/sh -c "cd /root/sinatra; bundle exec foreman start;"
+  - docker ps -a
+
+
+
+# see https://sebest.github.io/post/using-travis-ci-to-build-docker-images/
