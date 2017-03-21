@@ -1,10 +1,13 @@
 sudo: required
 services:
   - docker
-before_install:
+install:
   - docker build -t niggusch/java-mvn-mongo .
-  - docker run -d -p 127.0.0.1:27017:27017 niggusch/java-mvn-mongo"
+  - docker run -d -p 127.0.0.1:27017:27017 --name java-mvn-mongo niggusch/java-mvn-mongo
   - docker ps -a
+
+script:
+  - docker ps | grep -q java-mvn-mongo
 
 
 
