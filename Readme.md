@@ -1,4 +1,9 @@
+
+
+
 # Docker Image for bitbucket pipeline
+
+[![Travis Build Status](https://travis-ci.org/niggusch/docker-java-mvn-mongo.svg?branch=master)](https://travis-ci.org/niggusch/docker-java-mvn-mongo)
 
 Using alpine:edge for small image.
 combined Sun Java, Maven and Mongo.
