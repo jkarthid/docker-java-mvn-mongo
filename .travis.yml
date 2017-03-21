@@ -9,6 +9,10 @@ install:
 script:
   - docker ps | grep -q java-mvn-mongo
 
-
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" hub.docker.com;
+    docker push $DOCKER_USERNAME/java-mvn-mongo;
+    fi
 
 # see https://sebest.github.io/post/using-travis-ci-to-build-docker-images/
